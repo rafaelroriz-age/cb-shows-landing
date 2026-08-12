@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="CB Shows conecta artistas, produção e logística para eventos com gestão completa em todo o Brasil."
+    />
+    <meta name="theme-color" content="#2b2b2b" />
+    <link rel="icon" href={`${import.meta.env.BASE_URL}favicon.svg`} type="image/svg+xml" />
+    <meta name="generator" content={Astro.generator} />
+    <title>CB Shows | Artistas, produção e eventos em uma só operação</title>
+  </head>
+  <body>
+    <slot />
+  </body>
+</html>
+
+<style>
+  html,
+  body {
+    margin: 0;
+    width: 100%;
+    min-height: 100%;
+  }
+
+  body {
+    font-family: Inter, 'Segoe UI', sans-serif;
+  }
+</style>
+
+<style is:global>
+  @import '../styles/global.css';
+</style>
