@@ -1,6 +1,8 @@
 ---
 import Layout from '../layouts/Layout.astro';
 
+const assetBase = import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_URL : `${import.meta.env.BASE_URL}/`;
+
 const services = [
   {
     icon: '🎵',
@@ -35,14 +37,9 @@ const services = [
 ];
 
 const artists = [
-  { name: 'Sertanejo', type: 'sertanejo', label: 'Sertanejo' },
-  { name: 'Pagode', type: 'pagode', label: 'Pagode' },
-  { name: 'Samba', type: 'samba', label: 'Samba' },
-  { name: 'Pop', type: 'pop', label: 'Pop' },
-  { name: 'Eletrônico', type: 'dj', label: 'Eletrônico / DJ' },
-  { name: 'Gospel', type: 'gospel', label: 'Gospel' },
-  { name: 'Bandas', type: 'band', label: 'Bandas' },
-  { name: 'Outros formatos', type: 'sertanejo', label: 'Outros formatos' },
+  { name: 'Clássicos e novos nomes', type: 'sertanejo', label: 'Seleção CB Shows', image: `${assetBase}images/show-artists-1.png` },
+  { name: 'Grandes vozes do sertanejo', type: 'pop', label: 'Artistas em destaque', image: `${assetBase}images/show-artists-2.png` },
+  { name: 'Duplas e formatos especiais', type: 'band', label: 'Curadoria personalizada', image: `${assetBase}images/show-artists-3.png` },
 ];
 
 const processSteps = [
@@ -93,8 +90,7 @@ const faqs = [
   <header class="site-header">
     <div class="container">
       <a class="brand" href="#top" aria-label="CB Shows home">
-        <span class="brand-mark">CB</span>
-        <span>CB Shows</span>
+        <img class="brand-logo" src={`${assetBase}images/logo-cb-shows.png`} alt="CB Shows" />
       </a>
 
       <nav class="nav" id="site-nav" aria-label="Menu principal">
@@ -133,17 +129,7 @@ const faqs = [
 
         <div class="hero-visual" aria-hidden="true">
           <div class="stage-board">
-            <div class="stage-hero">
-              <div class="stage-grid"></div>
-              <div class="stage-badge">🎵 Evento em operação</div>
-              <div class="stage-lights">
-                <span></span>
-                <span></span>
-                <span></span>
-              </div>
-              <div class="stage-spotlight"></div>
-              <div class="stage-stage"></div>
-            </div>
+            <img class="stage-hero-image" src={`${assetBase}images/show-artists-1.png`} alt="Artistas em apresentação no palco" />
             <div class="stage-status">
               <small>Atendimento</small>
               <strong>+100 contratos</strong>
@@ -205,19 +191,15 @@ const faqs = [
 
         <div class="filter-bar" aria-label="Filtros de artistas">
           <button class="filter-chip active" type="button" data-filter="all">Todos</button>
-          <button class="filter-chip" type="button" data-filter="sertanejo">Sertanejo</button>
-          <button class="filter-chip" type="button" data-filter="pagode">Pagode</button>
-          <button class="filter-chip" type="button" data-filter="samba">Samba</button>
-          <button class="filter-chip" type="button" data-filter="pop">Pop</button>
-          <button class="filter-chip" type="button" data-filter="dj">Eletrônico / DJ</button>
-          <button class="filter-chip" type="button" data-filter="gospel">Gospel</button>
-          <button class="filter-chip" type="button" data-filter="band">Bandas</button>
+          <button class="filter-chip" type="button" data-filter="sertanejo">Seleção CB Shows</button>
+          <button class="filter-chip" type="button" data-filter="pop">Artistas em destaque</button>
+          <button class="filter-chip" type="button" data-filter="band">Formatos especiais</button>
         </div>
 
         <div class="artist-grid" id="artist-grid">
           {artists.map((artist) => (
             <article class={`artist-card`} data-category={artist.type}>
-              <div class={`artist-thumb ${artist.type}`} aria-hidden="true"></div>
+              <img class="artist-thumb" src={artist.image} alt={`Artistas: ${artist.name}`} loading="lazy" />
               <div class="artist-info">
                 <span class="artist-tag">{artist.label}</span>
                 <h3>{artist.name}</h3>
