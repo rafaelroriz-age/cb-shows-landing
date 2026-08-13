@@ -157,6 +157,7 @@ h3 {
 
 .btn-ghost {
   background: transparent;
+  color: rgba(243, 240, 234, 0.24);
   border-color: rgba(243, 240, 234, 0.24);
 }
 
