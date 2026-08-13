@@ -20,6 +20,6 @@ npm run build
 O deploy está configurado para GitHub Pages via GitHub Actions.
 
 - Repositório esperado: `rafaelroriz-age/cb-shows-landing`
-- URL publicada: `https://rafaelroriz-age.github.io/cb-shows-landing/`
+- URL publicada: `https://cb-shows.com.br/`
 
 Cada push na branch `main` dispara a publicação.
